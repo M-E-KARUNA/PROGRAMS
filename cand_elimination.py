@@ -142,35 +142,4 @@ else:
     all_gen_hyp=np.array(list(set(all_gen_hyp)) ) 
 print("All Possible Hypothesis",*all_gen_hyp,sep="\n")
  
-             
-             
-                
-                
-                
-                
-                
-                
-                         
-                                   
-                
-                
-                
-            
-            
-             
-             
-             
-                
-                
-            
-            
-          
-            
-            
-            
-            
-                 
-        
-        
-        
-
+       
