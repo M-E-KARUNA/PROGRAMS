@@ -1,13 +1,13 @@
 import pandas as pd
 import numpy as np
-data=pd.read_csv("/storage/emulated/0/Audio/n3.csv") 
+#give ur file path
+data=pd.read_csv("/storage/emulated/0/Audio/data.csv") 
 total_attribute=np.array(data.columns)[:-1] 
 data1=data
 data=np.array(data)
 print("dataset\n",data)
 S=np.array([" "]*(len(total_attribute))) 
 G=np.array([["?"]*len(S)],dtype="<U8")
-
 print("initially \nS={}\nG={}".format(S,G)) 
 count=1
 Gtest=0
@@ -111,13 +111,17 @@ for i,row in enumerate(data):
             differ=(g!=row[:-1]) 
             if np.array_equiv(g[differ],np.array(["?"]*list(differ).count(True))):
                 Gtest=1
-                _G=getG(g,row[:-1]) 
-        G=np.array(_G.copy()) 
+                _G.extend(getG(g,row[:-1]) ) 
+                
+                
+            else:
+                _G.append(g) 
+        _G=np.array(_G)
         
         if Gtest:
             Gtest=0
            # print (G)
-            G=checkG(G,data[:i+1])
+            G=checkG(_G,data[:i+1])
             
 #print(S)  
 #print(np.array(G))
